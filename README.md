@@ -12,7 +12,7 @@
 
 A production-grade vacation rental and residential marketplace crafted specifically for the Ethiopian ecosystem. Unifying premier web experiences with native mobile capabilities and localized payment rails.
 
-[Explore Architecture](docs/ARCHITECTURE.md) • [Quick Start](#-quick-start) • [Demo Accounts](#-demo-accounts) • [Mobile App](#-mobile-app-capacitor-8)
+[Explore Architecture](docs/ARCHITECTURE.md) • [Quick Start](#-quick-start) • [Mobile App](#-mobile-app-capacitor-8)
 
 </div>
 
