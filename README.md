@@ -106,18 +106,6 @@ Pre-built debug APKs are available:
 
 ---
 
-## 👥 Demo Accounts
-
-The database seed provides ready-to-test accounts:
-
-| Role | Email | Password | Capabilities |
-|---|---|---|---|
-| **Renter** | `renter@habeshahome.et` | `Password123!` | Explore, book stays, simulated Chapa/Telebirr checkout, leave reviews |
-| **Host / Owner** | `dawit@habeshahome.et` | `Password123!` | Host Hub, property management, pricing calendar, wallet withdrawals |
-| **Admin** | `admin@habeshahome.et` | `Password123!` | System metrics, financial audit logs, property & payout verification |
-
----
-
 ## 📄 License & Credits
 
 Developed by **[Salim](https://github.com/Salimjr7)**.
