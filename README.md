@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🇪🇹 Habesha Home (EthioHome)
+# 🇪🇹 EthioHomes
 ### Full-Stack Ethiopian Home Rental Marketplace — Web & Mobile
 
 [![Next.js](https://img.shields.io/badge/Next.js-15.2-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
@@ -51,8 +51,8 @@ A production-grade vacation rental and residential marketplace crafted specifica
 
 ### 2. Clone & Install
 ```bash
-git clone https://github.com/Salimjr7/habesha-home.git
-cd habesha-home
+git clone https://github.com/Salimjr7/ethio-homes.git
+cd ethio-homes
 npm install --legacy-peer-deps
 ```
 
