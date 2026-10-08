@@ -1,107 +1,123 @@
-# Habesha Home — Full-Stack Ethiopian Home Rental Marketplace 🇪🇹
+<div align="center">
 
-**Habesha Home** is a production-grade full-stack web application designed specifically for the Ethiopian housing and vacation rental market. It combines the refined user experience of Airbnb and Booking.com with Ethiopian financial infrastructure (Chapa & telebirr) and infrastructure assurances (24/7 standby generators, continuous water reservoir tanks, and gated security).
+# 🇪🇹 Habesha Home (EthioHome)
+### Full-Stack Ethiopian Home Rental Marketplace — Web & Mobile
 
----
+[![Next.js](https://img.shields.io/badge/Next.js-15.2-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
+[![Prisma](https://img.shields.io/badge/Prisma-6-2D3748?style=for-the-badge&logo=prisma)](https://www.prisma.io/)
+[![Capacitor](https://img.shields.io/badge/Capacitor-8-119EFF?style=for-the-badge&logo=capacitor)](https://capacitorjs.com/)
 
-## 🌟 Key Features
+A production-grade vacation rental and residential marketplace crafted specifically for the Ethiopian ecosystem. Unifying premier web experiences with native mobile capabilities and localized payment rails.
 
-### For Renters & Travelers
-- **Multi-City Discovery:** Search and filter verified homes across Addis Ababa (Bole, Kazanchis, Old Airport, CMC), Bishoftu crater lake villas, Hawassa waterfront retreats, and Bahir Dar.
-- **Ethiopian Living Assurances:** Guaranteed 24/7 power backup, continuous water reservoir tanks, and high-speed fiber internet tags.
-- **Local Payment Checkout:** Seamless payment in Ethiopian Birr (ETB) with **Chapa** (Cards, CBEBirr, Awash, Dashen) and **telebirr** direct mobile money.
-- **Real-Time Booking & Instant Reservation:** Deterministic server-side pricing engine with length-of-stay discounts and 15% Ethiopian VAT breakdown.
-- **Verified Reviews & Saved Homes:** Review system restricted to completed stays with aggregate 5-star scoring.
+[Explore Architecture](docs/ARCHITECTURE.md) • [Quick Start](#-quick-start) • [Demo Accounts](#-demo-accounts) • [Mobile App](#-mobile-app-capacitor-8)
 
-### For Hosts & Property Owners
-- **Host Hub & Multi-Step Listing Wizard:** 4-step listing creator with room capacity, amenity checklists, and nightly/monthly pricing.
-- **Auditable Financial Ledger & Wallet:** Track gross revenue, platform commissions, pending escrow, and request instant withdrawals directly to Ethiopian bank accounts or telebirr.
-- **Reservation Management:** Accept or manage incoming bookings with guest details.
-- **Direct Host-Renter Messaging:** Real-time chat interface.
-
-### For Platform Administrators
-- **Executive Analytics:** Real-time Gross Transaction Volume, 5% platform fee collection, active listings, and user management.
-- **Withdrawal Auditing:** Review and approve host payout disbursements with automated wallet reconciliation.
+</div>
 
 ---
 
-## 🛠️ Technology Stack
+## ⚡ Highlights & Ethiopian Context
 
-- **Framework:** Next.js 15+ (App Router, Server Components by default, Server Actions)
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS v4 + Habesha Home warm gold design tokens + Dark/Light mode
-- **UI Components:** Shadcn/ui patterns, Lucide icons, Framer Motion
-- **Database & ORM:** PostgreSQL (Neon Serverless) + Prisma ORM
-- **Authentication:** Better Auth with email/password, session tokens, and extensible OAuth
-- **Authorization:** CASL.js isomorphic RBAC (`GUEST`, `RENTER`, `OWNER`, `ADMIN`) with strict server-side enforcement
-- **Validation:** Shared Zod schemas for all client and server boundaries
-- **Payments:** Abstraction layer supporting **Chapa** and **telebirr** with sandbox simulator
+- 💳 **Localized Financial Infrastructure:** Native payment processing with **Chapa** (Cards, CBEBirr, Awash, Dashen) & **Telebirr** mobile money.
+- 💡 **Habesha Living Assurances:** Verified badges for **24/7 Standby Generator**, **Water Reservoir Tank**, and **High-Speed Fiber Internet**.
+- 📱 **Cross-Platform Parity:** Responsive Web App + Native Android & iOS app powered by Capacitor 8.
+- 🔒 **Financial Ledger & Escrow:** Immutable transaction logs with automated host payouts and audit trails.
+- ⚡ **Atomic Booking Engine:** Zero double-booking concurrency guarantees with deterministic server-side pricing & 15% Ethiopian VAT breakdown.
 
 ---
 
-## 🚀 Getting Started
+## 🏗️ Architecture & Tech Stack
+
+| Layer | Technologies |
+|---|---|
+| **Frontend & Web** | Next.js 15 (App Router, Server Components & Server Actions), React 19, Framer Motion, Lucide Icons |
+| **Mobile Runtime** | Capacitor 8 (`@capacitor/android`, `@capacitor/haptics`, `@capacitor/network`, `@capacitor/status-bar`) |
+| **Styling** | Tailwind CSS v4, Warm Ethiopian Gold design system, Light & Dark themes |
+| **Backend & Database** | PostgreSQL (Neon Serverless), Prisma ORM v6, REST Route Handlers |
+| **Auth & Security** | Better-Auth (sessions, cookies), CASL.js isomorphic RBAC (`GUEST`, `RENTER`, `OWNER`, `ADMIN`), Zod |
+| **Payments** | Chapa API & Telebirr Mobile Money abstraction layers with sandbox simulator |
+
+> 📖 **Deep Dive:** For full architectural diagrams and data flow specs, refer to [**`docs/ARCHITECTURE.md`**](docs/ARCHITECTURE.md).
+
+---
+
+## 🚀 Quick Start
 
 ### 1. Prerequisites
-- Node.js 18+ or 20+
-- A free [Neon PostgreSQL](https://neon.tech) database project
+- Node.js `20.x` or `22.x`
+- PostgreSQL instance (e.g. [Neon](https://neon.tech))
 
-### 2. Installation
+### 2. Clone & Install
 ```bash
-# Clone the repository and navigate into the directory
-git clone https://github.com/your-org/habesha-home.git
+git clone https://github.com/Salimjr7/habesha-home.git
 cd habesha-home
-
-# Install dependencies
 npm install --legacy-peer-deps
 ```
 
-### 3. Database Configuration
-Create a `.env` file in the root directory (based on `.env.example`):
+### 3. Environment Variables
+Create a `.env` file in the project root:
 ```env
-DATABASE_URL="postgresql://neondb_owner:password@ep-sample-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require"
-DIRECT_URL="postgresql://neondb_owner:password@ep-sample.us-east-2.aws.neon.tech/neondb?sslmode=require"
+DATABASE_URL="postgresql://user:password@ep-host.neon.tech/neondb?sslmode=require"
+DIRECT_URL="postgresql://user:password@ep-host.neon.tech/neondb?sslmode=require"
 
-BETTER_AUTH_SECRET="your-32-char-random-secret-key"
+BETTER_AUTH_SECRET="your-32-char-random-secret"
 BETTER_AUTH_URL="http://localhost:3000"
 NEXT_PUBLIC_APP_URL="http://localhost:3000"
 
-CHAPA_SECRET_KEY="CHASECK_TEST-your-chapa-secret"
-TELEBIRR_APP_ID="your-telebirr-app-id"
+CHAPA_PUBLIC_KEY="CHAPUBK_TEST-sample_public_key"
+CHAPA_SECRET_KEY="CHASECK_TEST-sample_secret_key"
+TELEBIRR_APP_ID="sample_telebirr_app_id"
+TELEBIRR_APP_KEY="sample_telebirr_app_key"
 ```
 
-### 4. Push Schema & Seed Database
+### 4. Database Setup & Seeding
 ```bash
-# Push the schema to your Neon PostgreSQL instance
 npx prisma db push
-
-# Generate the Prisma Client
 npx prisma generate
-
-# Seed with realistic Ethiopian listings, cities, hosts, and reviews
 npm run db:seed
 ```
 
-### 5. Run Development Server
+### 5. Start Development Server
 ```bash
 npm run dev
 ```
-Open [http://localhost:3000](http://localhost:3000) in your browser to experience Habesha Home.
+Visit **[http://localhost:3000](http://localhost:3000)** in your browser.
 
 ---
 
-## ⚡ Demo User Accounts
+## 📱 Mobile App (Capacitor 8)
 
-| Role | Email | Password | Features |
+The project includes an Android application inside `./android`.
+
+### Run / Build Android App:
+```bash
+# Sync web assets and plugins to Android project
+npx cap sync android
+
+# Open in Android Studio
+npx cap open android
+```
+
+Pre-built debug APKs are available:
+- [`EthioHome-fixed.apk`](EthioHome-fixed.apk)
+- [`EthioHome-debug.apk`](EthioHome-debug.apk)
+
+---
+
+## 👥 Demo Accounts
+
+The database seed provides ready-to-test accounts:
+
+| Role | Email | Password | Capabilities |
 |---|---|---|---|
-| **Renter** | `renter@habeshahome.et` | `Password123!` | Search, book, pay with Chapa/telebirr, review |
-| **Host / Owner** | `dawit@habeshahome.et` | `Password123!` | Manage Bole/Bishoftu villas, Host Hub, Wallet, Withdrawals |
-| **Admin** | `admin@habeshahome.et` | `Password123!` | Executive dashboard, payout audits, user moderation |
+| **Renter** | `renter@habeshahome.et` | `Password123!` | Explore, book stays, simulated Chapa/Telebirr checkout, leave reviews |
+| **Host / Owner** | `dawit@habeshahome.et` | `Password123!` | Host Hub, property management, pricing calendar, wallet withdrawals |
+| **Admin** | `admin@habeshahome.et` | `Password123!` | System metrics, financial audit logs, property & payout verification |
 
 ---
 
-## 🔒 Security & Architecture Principles
+## 📄 License & Credits
 
-1. **Deterministic Pricing Engine:** Client calculations are strictly for UI preview. Server recalculates and locks final booking charges.
-2. **Race-Condition-Proof Concurrency:** Atomic database transactions prevent double bookings for overlapping dates.
-3. **Auditable Financial Ledger:** Host balances cannot be edited arbitrarily; every credit or debit is backed by an immutable ledger transaction.
-4. **Isomorphic CASL Authorization:** RBAC rules defined in one central place and checked at every Server Action and API boundary.
+Developed by **[Salim](https://github.com/Salimjr7)**.
